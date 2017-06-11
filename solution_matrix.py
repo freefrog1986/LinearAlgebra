@@ -38,10 +38,12 @@ def transpose(M):
 def matxMultiply(A, B):
     ar,ac = shape(A)
     br,bc = shape(B)
+    C = []
     if not ac == br:
         return None
     else:
-        return "enen"
+        
+        return 
 
 # 1.1 Create a 4*4 identity matrix
 A = [[1,2,3], [2,3,3], [1,2,5]]

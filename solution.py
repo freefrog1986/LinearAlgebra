@@ -34,6 +34,15 @@ def transpose(M):
         j += 1
     return Mt
 
+def listMultiply(A,B):
+    t = 0
+    l1=len(A)
+    i = 0
+    while i<l1:
+        t+=A[i]*B[i]
+        i+=1
+    return t
+
 #TODO compute matrix multiplication AB, return None if the dimensions don't match
 def matxMultiply(A, B):
     ar,ac = shape(A)
@@ -41,7 +50,14 @@ def matxMultiply(A, B):
     if not ac == br:
         return None
     else:
-        return "enen"
+        C = []
+        Bt = transpose(B)
+        for i in A:
+            t = []
+            for j in Bt:
+                t += [listMultiply(i,j)]
+            C.append(t)
+        return C
 
 # 1.1 Create a 4*4 identity matrix
 A = [[1,2,3], [2,3,3], [1,2,5]]
@@ -49,19 +65,22 @@ B = [[1,2,3,5], [2,3,3,5], [1,2,5,1]]
 I = [[1,0,0,0], [0,1,0,0], [0,0,1,0],[0,0,0,1]]
 # print A,B,I
 
-# 1.2 get the width and height of a matrix
-# print shape(A),shape(B),shape(I)
+# Test your implementation
 
-# 1.3 round all elements in M to certain decimal points
-# print matxRound(B)
+#TODO test the shape function
+print shape(A),shape(B),shape(I)
 
-# 1.4 compute transpose of M
-# print transpose(B)
+#TODO test the round function
+print matxRound(B)
 
-# 1.5 compute AB. return None if the dimensions don't match
+#TODO test the transpose funtion
+print transpose(B)
+
+#TODO test the matxMultiply function, when the dimensions don't match
 print matxMultiply(A,I)
 
-
+#TODO test the matxMultiply function, when the dimensions do match
+print matxMultiply(A,B)
 
 
 
